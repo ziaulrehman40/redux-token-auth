@@ -19,9 +19,9 @@ export interface ReduxTokenAuthState {
   readonly currentUser: User
 }
 
-export interface ReduxState {
-  readonly reduxTokenAuth: ReduxTokenAuthState
-}
+// export interface ReduxState {
+//   readonly reduxTokenAuth: ReduxTokenAuthState
+// }
 
 export interface AuthHeaders {
   readonly 'access-token': string
@@ -182,7 +182,7 @@ export type ReduxAction = RegistrationRequestSentAction
 
 export type AppThunk<ReturnType = Promise<void>> = ThunkAction<
   ReturnType,
-  ReduxState,
+  object,
   unknown,
   Action<string>
 >
@@ -207,6 +207,7 @@ export interface SingleLayerStringMap {
 
 export interface GenerateRequireSignInWrapperConfig {
   readonly redirectPathIfNotSignedIn: string
+  readonly mapStateToProps: (state: object) => {hasVerificationBeenAttempted: boolean, isSignedIn: boolean}
 }
 
 // export type RequireSignInWrapper = (PageComponent: ComponentClass) => ComponentClass

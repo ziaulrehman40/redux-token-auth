@@ -2,18 +2,18 @@ import * as React from 'react'
 import { connect, ConnectedProps } from 'react-redux'
 import {
   GenerateRequireSignInWrapperConfig,
-  ReduxState,
+  // ReduxState,
 } from './types'
 
 const generateRequireSignInWrapper = (
-  { redirectPathIfNotSignedIn }: GenerateRequireSignInWrapperConfig
+  { redirectPathIfNotSignedIn, mapStateToProps }: GenerateRequireSignInWrapperConfig
 ) => {
   const requireSignInWrapper = (PageComponent: React.ComponentClass | React.FunctionComponent) => {
 
-    const mapStateToProps = (state: ReduxState) => ({
-      hasVerificationBeenAttempted: state.reduxTokenAuth.currentUser.hasVerificationBeenAttempted,
-      isSignedIn: state.reduxTokenAuth.currentUser.isSignedIn
-    })
+    // const mapStateToProps = (state: ReduxState) => ({
+    //   hasVerificationBeenAttempted: state.reduxTokenAuth.currentUser.hasVerificationBeenAttempted,
+    //   isSignedIn: state.reduxTokenAuth.currentUser.isSignedIn
+    // })
 
     const connector = connect(mapStateToProps)
     type PropsFromRedux = ConnectedProps<typeof connector>

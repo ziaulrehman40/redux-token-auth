@@ -185,8 +185,16 @@ import SomeProtectedPageComponent from './components/SomeProtectedPageComponent'
 import SignInPage from './components/SignInPage'
 import { generateRequireSignInWrapper } from 'redux-token-auth'
 
+// In this example we set `reduxTokenAuth` as reducer key.
+// You can set other key name as you like.
+const mapStateToProps = (state) => ({
+  hasVerificationBeenAttempted: state.reduxTokenAuth.currentUser.hasVerificationBeenAttempted,
+  isSignedIn: state.reduxTokenAuth.currentUser.isSignedIn
+})
+
 const requireSignIn = generateRequireSignInWrapper({
   redirectPathIfNotSignedIn: '/signin',
+  mapStateToProps,
 })
 
 const history = createBrowserHistory({})
