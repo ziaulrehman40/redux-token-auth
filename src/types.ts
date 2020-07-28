@@ -207,7 +207,7 @@ export interface SingleLayerStringMap {
 
 export interface GenerateRequireSignInWrapperConfig {
   readonly redirectPathIfNotSignedIn: string
-  readonly mapStateToProps: (state: unknown) => {hasVerificationBeenAttempted: boolean, isSignedIn: boolean}
+  readonly mapStateToProps: (state: any) => {hasVerificationBeenAttempted: boolean, isSignedIn: boolean}
 }
 
 // export type RequireSignInWrapper = (PageComponent: ComponentClass) => ComponentClass
