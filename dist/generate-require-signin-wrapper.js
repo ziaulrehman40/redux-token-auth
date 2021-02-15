@@ -27,12 +27,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var generateRequireSignInWrapper = function (_a) {
-    var redirectPathIfNotSignedIn = _a.redirectPathIfNotSignedIn;
+    var redirectPathIfNotSignedIn = _a.redirectPathIfNotSignedIn, mapStateToProps = _a.mapStateToProps;
     var requireSignInWrapper = function (PageComponent) {
-        var mapStateToProps = function (state) { return ({
-            hasVerificationBeenAttempted: state.reduxTokenAuth.currentUser.hasVerificationBeenAttempted,
-            isSignedIn: state.reduxTokenAuth.currentUser.isSignedIn
-        }); };
+        // const mapStateToProps = (state: ReduxState) => ({
+        //   hasVerificationBeenAttempted: state.reduxTokenAuth.currentUser.hasVerificationBeenAttempted,
+        //   isSignedIn: state.reduxTokenAuth.currentUser.isSignedIn
+        // })
         var connector = react_redux_1.connect(mapStateToProps);
         var GatedPage = /** @class */ (function (_super) {
             __extends(GatedPage, _super);
