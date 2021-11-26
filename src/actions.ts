@@ -183,6 +183,8 @@ const generateAuthActions = (config: GenerateAuthActionsConfig) => {
       dispatch(verifyTokenRequestSucceeded(userAttributesToSave))
     } catch (error) {
       dispatch(verifyTokenRequestFailed())
+      deleteAuthHeaders()
+      deleteAuthHeadersFromDeviceStorage(Storage)
     }
   }
 

@@ -169,6 +169,8 @@ var generateAuthActions = function (config) {
                     case 3:
                         error_2 = _a.sent();
                         dispatch(exports.verifyTokenRequestFailed());
+                        auth_1.deleteAuthHeaders();
+                        auth_1.deleteAuthHeadersFromDeviceStorage(Storage);
                         return [3 /*break*/, 4];
                     case 4: return [2 /*return*/];
                 }
