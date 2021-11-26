@@ -159,8 +159,10 @@ var generateAuthActions = function (config) {
                             })];
                     case 2:
                         response = _a.sent();
-                        auth_1.setAuthHeaders(response.headers);
-                        auth_1.persistAuthHeadersInDeviceStorage(Storage, response.headers);
+                        if (response.headers['access-token'] && response.headers['access-token'] !== '') {
+                            auth_1.setAuthHeaders(response.headers);
+                            auth_1.persistAuthHeadersInDeviceStorage(Storage, response.headers);
+                        }
                         userAttributesToSave = auth_1.getUserAttributesFromResponse(userAttributes, response);
                         dispatch(exports.verifyTokenRequestSucceeded(userAttributesToSave));
                         return [3 /*break*/, 4];
@@ -234,6 +236,7 @@ var generateAuthActions = function (config) {
                                 method: 'DELETE',
                                 url: authUrl + "/sign_out",
                                 data: userSignOutCredentials,
+                                headers: userSignOutCredentials,
                             })];
                     case 5:
                         _c.sent();

@@ -175,8 +175,10 @@ const generateAuthActions = (config: GenerateAuthActionsConfig) => {
         url: `${authUrl}/validate_token`,
         params: verificationParams,
       })
-      setAuthHeaders(response.headers)
-      persistAuthHeadersInDeviceStorage(Storage, response.headers)
+      if (response.headers['access-token'] && response.headers['access-token'] !== '') {
+        setAuthHeaders(response.headers)
+        persistAuthHeadersInDeviceStorage(Storage, response.headers)
+      }
       const userAttributesToSave = getUserAttributesFromResponse(userAttributes, response)
       dispatch(verifyTokenRequestSucceeded(userAttributesToSave))
     } catch (error) {
@@ -223,6 +225,7 @@ const generateAuthActions = (config: GenerateAuthActionsConfig) => {
         method: 'DELETE',
         url: `${authUrl}/sign_out`,
         data: userSignOutCredentials,
+        headers: userSignOutCredentials,
       })
       deleteAuthHeaders()
       deleteAuthHeadersFromDeviceStorage(Storage)
