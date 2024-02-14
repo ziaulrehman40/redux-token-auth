@@ -1,10 +1,9 @@
 import {
-  combineReducers,
-  Reducer,
+  combineReducers
 } from 'redux'
 import currentUser from './current-user'
 
-const reduxTokenAuthReducer: Reducer<{}> = combineReducers({
+const reduxTokenAuthReducer = combineReducers({
   currentUser,
 })
 

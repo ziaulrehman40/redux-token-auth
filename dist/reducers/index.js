@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var redux_1 = require("redux");
 var current_user_1 = require("./current-user");
-var reduxTokenAuthReducer = redux_1.combineReducers({
+var reduxTokenAuthReducer = (0, redux_1.combineReducers)({
     currentUser: current_user_1.default,
 });
 exports.default = reduxTokenAuthReducer;

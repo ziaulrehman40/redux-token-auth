@@ -51,7 +51,7 @@ const generateRequireSignInWrapper = (
 
     return connect(
       mapStateToProps,
-    )(GatedPage)
+    )(GatedPage) as unknown as ComponentClass
   }
 
   return requireSignInWrapper

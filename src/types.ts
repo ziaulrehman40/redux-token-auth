@@ -2,12 +2,12 @@ import { ComponentClass } from 'react'
 import {
   Dispatch,
   Store,
+  Action,
 } from 'redux'
 
 export interface UserAttributes {
   [key: string]: string | number | null
 }
-
 export interface User {
   readonly isSignedIn: boolean
   readonly isLoading: boolean
@@ -24,7 +24,8 @@ export interface ReduxState {
 }
 
 export interface AuthHeaders {
-  readonly 'access-token': string
+  readonly [key: string]: string
+  readonly ['access-token']: string
   readonly 'token-type': string
   readonly client: string
   readonly expiry: string
@@ -158,12 +159,7 @@ export interface SignOutRequestFailedAction {
   readonly type: SIGNOUT_REQUEST_FAILED
 }
 
-export interface SetHasVerificationBeenAttemptedAction {
-  readonly type: SET_HAS_VERIFICATION_BEEN_ATTEMPTED
-  readonly payload: {
-    readonly hasVerificationBeenAttempted: boolean
-  }
-}
+
 
 export type ReduxAction = RegistrationRequestSentAction
   | RegistrationRequestSucceededAction
@@ -178,8 +174,13 @@ export type ReduxAction = RegistrationRequestSentAction
   | SignOutRequestSucceededAction
   | SignOutRequestFailedAction
   | SetHasVerificationBeenAttemptedAction
-
-export type ReduxAsyncAction = (input?: any) => (dispatch: Dispatch<{}>) => Promise<void>
+  export interface SetHasVerificationBeenAttemptedAction {
+    readonly type: SET_HAS_VERIFICATION_BEEN_ATTEMPTED
+    readonly payload: {
+      readonly hasVerificationBeenAttempted: boolean
+    }
+  }
+export type ReduxAsyncAction = (input?: any) => (dispatch: Dispatch<Action>) => Promise<void>
 
 export type VerifyCredentialsFunction = (store: Store<{}>) => void
 
