@@ -245,7 +245,7 @@ const generateAuthActions = (config: { [key: string]: any }): ActionsExport => {
       }
       store.dispatch<any>(verifyToken(verificationParams))
     } else {
-      store.dispatch(<Action>setHasVerificationBeenAttempted(true))
+      store.dispatch<any>(setHasVerificationBeenAttempted(true))
     }
   }
 
