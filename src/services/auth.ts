@@ -17,13 +17,13 @@ const authHeaderKeys: Array<string> = [
 
 export const setAuthHeaders = (headers: AuthHeaders): void => {
   authHeaderKeys.forEach((key: string) => {
-    axios.defaults.headers.common[key] = headers[key]
+    axios.defaults.headers.common[key] = headers[key as keyof AuthHeaders]
   })
 }
 
 export const persistAuthHeadersInDeviceStorage = (Storage: DeviceStorage, headers: AuthHeaders): void => {
   authHeaderKeys.forEach((key: string) => {
-    Storage.setItem(key, headers[key])
+    Storage.setItem(key, headers[key as keyof AuthHeaders])
   })
 }
 

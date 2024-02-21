@@ -24,8 +24,7 @@ export interface ReduxState {
 }
 
 export interface AuthHeaders {
-  readonly [key: string]: string
-  readonly ['access-token']: string
+  readonly 'access-token': string
   readonly 'token-type': string
   readonly client: string
   readonly expiry: string
