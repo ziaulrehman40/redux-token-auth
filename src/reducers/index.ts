@@ -1,5 +1,5 @@
 import {
-  combineReducers
+  combineReducers,
 } from 'redux'
 import currentUser from './current-user'
 

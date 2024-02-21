@@ -14,7 +14,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var types_1 = require("../../types");
 var initial_state_1 = require("../../initial-state");
 var initialUser = initial_state_1.default.currentUser;
-var currentUserReducer = function (state, action) {
+var currentUser = function (state, action) {
     if (state === void 0) { state = initialUser; }
     switch (action.type) {
         case types_1.REGISTRATION_REQUEST_SENT:
@@ -47,5 +47,5 @@ var currentUserReducer = function (state, action) {
             return state;
     }
 };
-exports.default = currentUserReducer;
+exports.default = currentUser;
 //# sourceMappingURL=index.js.map

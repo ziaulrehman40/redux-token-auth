@@ -22,7 +22,7 @@ const {
   currentUser: initialUser,
 } = initialState
 
-const currentUserReducer = (state: User = initialUser, action: ReduxAction): User => {
+const currentUser = (state: User = initialUser, action: ReduxAction): User => {
   switch (action.type) {
     case REGISTRATION_REQUEST_SENT:
     case VERIFY_TOKEN_REQUEST_SENT:
@@ -94,4 +94,4 @@ const currentUserReducer = (state: User = initialUser, action: ReduxAction): Use
   }
 }
 
-export default currentUserReducer
+export default currentUser
