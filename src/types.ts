@@ -1,8 +1,7 @@
 import { ComponentClass } from 'react'
 import {
   Dispatch,
-  Store,
-  Action,
+  Store
 } from 'redux'
 
 export interface UserAttributes {
@@ -179,7 +178,7 @@ export type ReduxAction = RegistrationRequestSentAction
       readonly hasVerificationBeenAttempted: boolean
     }
   }
-export type ReduxAsyncAction = (input?: any) => (dispatch: Dispatch<Action>) => Promise<void>
+export type ReduxAsyncAction = (input?: any) => (dispatch: Dispatch<any>) => Promise<void>
 
 export type VerifyCredentialsFunction = (store: Store<{}>) => void
 
